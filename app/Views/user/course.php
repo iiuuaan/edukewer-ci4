@@ -28,7 +28,7 @@
                 $no = 1;
                 foreach ($modules as $module): ?>
                 <li>
-                    <a href="<?= base_url('course/' . $course['id'] . '/module/' . $module['id']) ?>">
+                    <a href="<?= base_url('course/' . $course['id'] . '/module/' . $module['module_number']) ?>">
                         <strong>Modul <?= $no++ ?>:</strong> <?= esc($module['title']) ?>
                     </a>
                 </li>
