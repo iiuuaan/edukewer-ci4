@@ -7,6 +7,8 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 
+$routes->get('course/(:num)', 'Course::view/$1');
+
 $routes->get('user', 'User::index');
 
 $routes->get('login', 'User::login');
