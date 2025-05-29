@@ -2,21 +2,24 @@
 
 namespace App\Controllers;
 
+use App\Models\ModuleModel;
+
 class Module extends BaseController
 {
-    public function view($id)
+    public function view($courseId, $moduleNumber)
     {
-        $courseModel = new \App\Models\CourseModel();
-        $moduleModel = new \App\Models\ModuleModel();
+        $model = new ModuleModel();
 
-        $data['course'] = $courseModel->find($id);
-        if (!$data['course']) {
-            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Course not found");
+        $module = $model->where([
+            'course_id' => $courseId,
+            'module_number' => $moduleNumber
+        ])->first();
+
+        if (!$module) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Modul tidak ditemukan.");
         }
 
-        $data['modules'] = $moduleModel->where('course_id', $id)->findAll();
-
-        return view('user/course', $data);
+        return view('user/module_view', ['module' => $module]);
     }
-
 }
+
