@@ -2,10 +2,16 @@
 
 namespace App\Controllers;
 
+use App\Models\CourseModel;
+
 class Home extends BaseController
 {
     public function index(): string
     {
-        return view('index');
+
+        $model = new CourseModel();
+        $courses = $model->findAll();
+
+        return view('index', ['courses' => $courses]);
     }
 }

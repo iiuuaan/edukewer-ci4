@@ -32,26 +32,17 @@
     <section class="courses">
         <h2>Available Courses</h2>
         <div class="course-list">
-            <div class="course-item course1">
-                <h3>Course 1</h3>
-                <p>Introduction to Programming</p>
-                <a href="course1.html">View Course</a>
-            </div>
-            <div class="course-item course2">
-                <h3>Course 2</h3>
-                <p>Web Development Basics</p>
-                <a href="course2.html">View Course</a>
-            </div>
-            <div class="course-item course3">
-                <h3>Course 3</h3>
-                <p>Data Structures and Algorithms Basics</p>
-                <a href="course3.html">View Course</a>
-            </div>
-            <div class="course-item course4">
-                <h3>Course 4</h3>
-                <p>Database Fundamentals</p>
-                <a href="course4.html">View Course</a>
-            </div>
+
+            <?php
+                $no = 1;
+                foreach ($courses as $course): ?>
+                <div class="course-item" style="background-image: url('<?= base_url('assets/images/' . $course['thumbnail']) ?>');">
+                    <h3>Course <?= $no++ ?></h3>
+                    <p><?= esc($course['title']) ?></p>
+                    <a href="<?= base_url('course/' . $course['id'])?>">View Course</a>
+                </div>
+            <?php endforeach; ?>
+
         </div>
     </section>
 
