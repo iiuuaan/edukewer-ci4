@@ -48,21 +48,32 @@ class MigrateAndSeed extends BaseCommand
      *
      * @var array
      */
-    protected $options = [];
+    protected $options = [
+        '--refresh' => 'Uses migrate:refresh instead of migrate.',
+    ];
+
 
     /**
      * Actually execute a command.
    *
      * @param array $params
      */
-    public function run(array $params)
-    {
-        CLI::write('Running migrations...', 'yellow');
-        command('migrate');
+  public function run(array $params)
+  {
+      $useRefresh = CLI::getOption('refresh');
 
-        CLI::write('Seeding database...', 'yellow');
-        command('db:seed DatabaseSeeder');
+      if ($useRefresh) {
+          CLI::write('Refreshing migrations...', 'yellow');
+          command('migrate:refresh');
+      } else {
+          CLI::write('Running migrations...', 'yellow');
+          command('migrate');
+      }
 
-        CLI::write('Done.', 'green');
-    }
+      CLI::write('Seeding database...', 'yellow');
+      command('db:seed DatabaseSeeder');
+
+      CLI::write('Done.', 'green');
+  }
+
 }
