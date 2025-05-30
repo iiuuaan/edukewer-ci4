@@ -23,4 +23,11 @@ document.addEventListener("DOMContentLoaded", () => {
       course.style.display = text.includes(query) ? "block" : "none";
     });
   });
+
+  document.querySelectorAll(".course-item").forEach((item) => {
+    item.addEventListener("click", () => {
+      const url = item.getAttribute("data-url");
+      window.location.href = url;
+    });
+  });
 });

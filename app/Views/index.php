@@ -38,7 +38,9 @@
             <?php
             $no = 1;
             foreach ($courses as $course): ?>
-                <div class="course-item" style="background-image: url('<?= base_url('assets/images/' . $course['thumbnail']) ?>');">
+                <div class="course-item"
+                    data-url="<?= base_url('course/' . $course['id']) ?>"
+                    style="cursor: pointer; background-image: url('<?= base_url('assets/images/' . $course['thumbnail']) ?>');">
                     <h3>Course <?= $no++ ?></h3>
                     <p><?= esc($course['title']) ?></p>
                     <a href="<?= base_url('course/' . $course['id']) ?>">View Course</a>
