@@ -9,7 +9,7 @@
 
 <body>
     <header>
-        <h1>Modul: Pengenalan</h1>
+        <h1>Modul <?= esc($module['module_number']) ?>: <?= esc($module['title']) ?></h1>
         <nav>
             <a href="<?= base_url('course/' . $module['course_id']) ?>">Kembali ke Course</a>
             <a href="../dashboard.html">Dashboard</a>
