@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="<?= base_url('css/index.css') ?>" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet" />
 </head>
+
 <body>
     <header>
         <h1>Edukewer</h1>
@@ -14,8 +16,8 @@
         <div class="header-right">
             <nav id="nav-links">
                 <a href="<?= site_url('/') ?>">Home</a>
-                <a href="<?= site_url('login')?>">Login</a>
-                <a href="<?= site_url('register')?>">Register</a>
+                <a href="<?= site_url('login') ?>">Login</a>
+                <a href="<?= site_url('register') ?>">Register</a>
             </nav>
         </div>
     </header>
@@ -34,12 +36,12 @@
         <div class="course-list">
 
             <?php
-                $no = 1;
-                foreach ($courses as $course): ?>
+            $no = 1;
+            foreach ($courses as $course): ?>
                 <div class="course-item" style="background-image: url('<?= base_url('assets/images/' . $course['thumbnail']) ?>');">
                     <h3>Course <?= $no++ ?></h3>
                     <p><?= esc($course['title']) ?></p>
-                    <a href="<?= base_url('course/' . $course['id'])?>">View Course</a>
+                    <a href="<?= base_url('course/' . $course['id']) ?>">View Course</a>
                 </div>
             <?php endforeach; ?>
 
@@ -49,5 +51,7 @@
     <footer>
         <p>&copy; 2025 Edukewer. All rights reserved.</p>
     </footer>
+    <script src="<?= base_url('js/index.js') ?>"></script>
 </body>
+
 </html>
