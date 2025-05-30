@@ -5,30 +5,30 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-$routes->get('/', 'Home::index');
+$routes->get('/', 'HomeController::index');
 
-$routes->get('course/(:num)', 'Course::view/$1');
-$routes->get('course/(:num)/module/(:num)', 'Module::view/$1/$2');
+$routes->get('course/(:num)', 'CourseController::view/$1');
+$routes->get('course/(:num)/module/(:num)', 'ModuleController::view/$1/$2');
 
-$routes->get('user', 'User::index');
+$routes->get('user', 'UserController::index');
 
-$routes->get('login', 'User::login');
-$routes->post('user/check_login', 'User::check_login');
+$routes->get('login', 'UserController::login');
+$routes->post('user/check_login', 'UserController::check_login');
 
-$routes->get('register', 'User::register');
-$routes->post('register', 'User::saveRegister');
+$routes->get('register', 'UserController::register');
+$routes->post('register', 'UserController::saveRegister');
 
-$routes->get('user/logout', 'User::logout');
+$routes->get('user/logout', 'UserController::logout');
 
-$routes->get('admin/login', 'Admin::login');
-$routes->post('admin/check_login', 'Admin::check_login');
+$routes->get('admin/login', 'AdminController::login');
+$routes->post('admin/check_login', 'AdminController::check_login');
 
-$routes->get('admin/logout', 'admin::logout');
+$routes->get('admin/logout', 'adminController::logout');
 
 
-$routes->get('admin/dashboard', 'AdminDashboard::index', ['filter' => 'adminauth']);
+$routes->get('admin/dashboard', 'AdminDashboardController::index', ['filter' => 'adminauth']);
 
-$routes->get('user/dashboard', 'UserDashboard::index', ['filter' => 'userauth']);
-$routes->get('user/course', 'UserDashboard::course', ['filter' => 'userauth']);
+$routes->get('user/dashboard', 'UserDashboardController::index', ['filter' => 'userauth']);
+$routes->get('user/course', 'UserDashboardController::course', ['filter' => 'userauth']);
 
 

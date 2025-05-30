@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Models\ModuleModel;
 
-class Module extends BaseController
+class ModuleController extends BaseController
 {
     public function view($courseId, $moduleNumber)
     {

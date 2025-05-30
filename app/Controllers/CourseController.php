@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-class Course extends BaseController
+class CourseController extends BaseController
 {
 
     public function view($id)

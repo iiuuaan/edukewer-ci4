@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-class UserDashboard extends BaseController
+class UserDashboardController extends BaseController
 {
     public function index(): string 
     {
