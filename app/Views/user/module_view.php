@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Module Details - Edukewer</title>
     <link rel="stylesheet" href="<?= base_url('css/module.css') ?>">
 </head>
+
 <body>
     <header>
         <h1>Modul: Pengenalan</h1>
         <nav>
-            <a href="../course1.html">Kembali ke Course</a>
+            <a href="<?= base_url('course/' . $module['course_id']) ?>">Kembali ke Course</a>
             <a href="../dashboard.html">Dashboard</a>
         </nav>
     </header>
@@ -18,7 +20,7 @@
         <section class="module-content">
             <h2>Materi</h2>
             <?php
-                echo $module['content'];
+            echo $module['content'];
             ?>
         </section>
 
@@ -34,7 +36,7 @@
         <section class="video-container">
             <h3>Video Pembelajaran</h3>
             <iframe width="600" height="340"
-                src="<?= esc($module['video_url']) ?>" 
+                src="<?= esc($module['video_url']) ?>"
                 title="Video Pembelajaran"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -64,4 +66,5 @@
 
     <script src="assets/js/script.js"></script>
 </body>
+
 </html>
