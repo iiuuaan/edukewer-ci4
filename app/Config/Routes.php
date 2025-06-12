@@ -9,6 +9,10 @@ $routes->get('/', 'HomeController::index');
 
 $routes->get('course/(:num)', 'CourseController::view/$1');
 $routes->get('course/(:num)/module/(:num)', 'ModuleController::view/$1/$2');
+$routes->get('course/(:num)/module/(:num)/quiz', 'QuizController::view/$1/$2');
+$routes->post('course/(:num)/module/(:num)/quiz/submit', 'QuizController::submit/$1/$2');
+$routes->get('course/(:num)/module/(:num)/quiz/review', 'QuizController::review/$1/$2');
+
 
 $routes->get('user', 'UserController::index');
 
