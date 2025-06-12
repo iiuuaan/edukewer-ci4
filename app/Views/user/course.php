@@ -9,7 +9,7 @@
     <header>
         <h1><?= esc($course['title']) ?></h1>
         <nav>
-            <a href="<?= base_url('/') ?>">Home</a>
+            <a href="<?= site_url('/') ?>">Home</a>
             <a href="#">Dashboard</a>
         </nav>
     </header>
@@ -28,7 +28,7 @@
                 $no = 1;
                 foreach ($modules as $module): ?>
                 <li>
-                    <a href="<?= base_url('course/' . $course['id'] . '/module/' . $module['module_number']) ?>">
+                    <a href="<?= site_url('course/' . $course['id'] . '/module/' . $module['module_number']) ?>">
                         <strong>Modul <?= $no++ ?>:</strong> <?= esc($module['title']) ?>
                     </a>
                 </li>

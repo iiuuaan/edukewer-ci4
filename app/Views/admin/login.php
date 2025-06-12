@@ -9,7 +9,7 @@
 <body>
     <div class="login-container">
         <h2>Login Admin</h2>
-            <form id="login-form" method="post" action="<?= base_url('admin/check_login') ?>">
+            <form id="login-form" method="post" action="<?= site_url('admin/check_login') ?>">
             <input type="text" id="username" name="username" placeholder="Username" required>
             <input type="password" id="password" name="password" placeholder="Password" required>
             <button type="submit">Login</button>

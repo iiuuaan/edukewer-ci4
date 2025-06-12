@@ -11,7 +11,7 @@
     <header>
         <h1>Modul <?= esc($module['module_number']) ?>: <?= esc($module['title']) ?></h1>
         <nav>
-            <a href="<?= base_url('course/' . $module['course_id']) ?>">Kembali ke Course</a>
+            <a href="<?= site_url('course/' . $module['course_id']) ?>">Kembali ke Course</a>
             <a href="../dashboard.html">Dashboard</a>
         </nav>
     </header>
@@ -46,7 +46,7 @@
 
         <section class="quiz-section">
             <h3>Kuis Modul</h3>
-            <a href="quiz.html?module_id=1" class="quiz-link">Kerjakan Kuis</a>
+            <a href="<?= site_url('course/' . $module['course_id'] . '/module/' . $module['module_number'] . '/quiz') ?>" class="quiz-link">Kerjakan Kuis</a>
         </section>
 
         <section class="forum-section">

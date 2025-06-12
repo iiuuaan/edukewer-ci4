@@ -34,7 +34,7 @@
                 <span class="divider">|</span>
                 <a href="dashboard.html">My Courses</a>
                 <span class="divider">|</span>
-                <a href="<?= base_url('user/logout') ?>">Logout</a>
+                <a href="<?= site_url('user/logout') ?>">Logout</a>
             </nav>
         </div>
     </header>
@@ -45,7 +45,7 @@
             <div class="course-item">
                 <h3>Course 1</h3>
                 <p>Introduction to Programming</p>
-                <a href="<?= base_url('user/course') ?>">Go to Course</a>
+                <a href="<?= site_url('user/course') ?>">Go to Course</a>
             </div>
             <div class="course-item">
                 <h3>Course 2</h3>

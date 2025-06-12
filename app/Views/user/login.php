@@ -9,7 +9,7 @@
 <body>
     <div class="login-container">
         <h2>Login</h2>
-            <form id="login-form" method="post" action="<?= base_url('user/check_login') ?>">
+            <form id="login-form" method="post" action="<?= site_url('user/check_login') ?>">
             <input type="text" id="username" name="username" placeholder="Username" required>
             <input type="password" id="password" name="password" placeholder="Password" required>
             <button type="submit">Login</button>
@@ -22,7 +22,7 @@
         <!-- <p id="error-message" style="color: red; display: none;">Invalid credentials!</p> -->
 
         <p style="margin-top: 15px;">
-                Belum punya akun? <a href="<?= base_url('register') ?>">Daftar di sini</a>
+                Belum punya akun? <a href="<?= site_url('register') ?>">Daftar di sini</a>
         </p>
     </div>
 </body>
