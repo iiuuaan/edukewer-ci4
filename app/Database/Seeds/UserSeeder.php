@@ -32,6 +32,6 @@ class UserSeeder extends Seeder
         ];
 
         // Menggunakan insertBatch untuk insert banyak sekaligus
-        $this->db->table('users')->insertBatch($data);
+        $this->db->table('tbl_users')->insertBatch($data);
     }
 }

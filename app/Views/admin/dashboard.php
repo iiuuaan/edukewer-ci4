@@ -10,7 +10,7 @@
     <p>Anda (<?php echo esc($username) ?>) berhasil login ke sistem.</p>
     <p>Ini adalah halaman Admin</p>
 
-    <p><a href="<?= base_url('admin/logout') ?>">Logout</a></p>
+    <p><a href="<?= site_url('admin/logout') ?>">Logout</a></p>
 
 </body>
 </html>

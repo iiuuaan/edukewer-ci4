@@ -64,6 +64,7 @@ class UserController extends BaseController
 
         // Set session jika login berhasil
         session()->set([
+            'user_id'   => $user['id'],
             'username' => $user['username'],
             'role'     => $user['role'],
             'logged_in' => true

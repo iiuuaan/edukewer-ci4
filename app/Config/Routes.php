@@ -6,13 +6,14 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 $routes->get('/', 'HomeController::index');
-
 $routes->get('course/(:num)', 'CourseController::view/$1');
-$routes->get('course/(:num)/module/(:num)', 'ModuleController::view/$1/$2');
-$routes->get('course/(:num)/module/(:num)/quiz', 'QuizController::view/$1/$2');
-$routes->post('course/(:num)/module/(:num)/quiz/submit', 'QuizController::submit/$1/$2');
-$routes->get('course/(:num)/module/(:num)/quiz/review', 'QuizController::review/$1/$2');
 
+$routes->group('course', ['filter' => 'userauth'], function ($routes) {
+    $routes->get('(:num)/module/(:num)', 'ModuleController::view/$1/$2');
+    $routes->get('(:num)/module/(:num)/quiz', 'QuizController::view/$1/$2');
+    $routes->post('(:num)/module/(:num)/quiz/submit', 'QuizController::submit/$1/$2');
+    $routes->get('(:num)/module/(:num)/quiz/review', 'QuizController::review/$1/$2');
+});
 
 $routes->get('user', 'UserController::index');
 
@@ -34,5 +35,3 @@ $routes->get('admin/dashboard', 'AdminDashboardController::index', ['filter' => 
 
 $routes->get('user/dashboard', 'UserDashboardController::index', ['filter' => 'userauth']);
 $routes->get('user/course', 'UserDashboardController::course', ['filter' => 'userauth']);
-
-

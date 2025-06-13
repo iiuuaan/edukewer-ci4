@@ -3,13 +3,22 @@
 namespace App\Controllers;
 
 use App\Models\ModuleModel;
+use App\Models\EnrollmentModel;
 
 class ModuleController extends BaseController
 {
     public function view($courseId, $moduleNumber)
     {
-        $model = new ModuleModel();
 
+        // Ambil user ID dari session
+        $userId = session()->get('user_id');
+        // Cek apakah user sudah enroll
+        $enrollmentModel = new EnrollmentModel();
+        $isEnrolled = $enrollmentModel
+            ->where('user_id', $userId)
+            ->where('course_id', $courseId)
+            ->first();
+        $model = new ModuleModel();
         $module = $model->where([
             'course_id' => $courseId,
             'module_number' => $moduleNumber
