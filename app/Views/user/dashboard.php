@@ -14,9 +14,7 @@
         <div class="header-right">
             <nav id="nav-links">
                 <a href="<?= site_url('/') ?>">Home</a>
-                <span class="divider">|</span>
-                <a href="dashboard.html">My Courses</a>
-                <span class="divider">|</span>
+                <a href="<?= site_url('user/dashboard/profile') ?>">My profile</a>
                 <a href="<?= site_url('user/logout') ?>">Logout</a>
             </nav>
         </div>
@@ -24,7 +22,7 @@
 
 <main class="dashboard-main">
     <section class="last-courses">
-        <h2>Kursus Terakhir Diakses</h2>
+        <h2>Recently Accessed Course</h2>
         <?php if (!empty($lastCourses)): ?>
         <div class="course-list">
             <?php
@@ -35,7 +33,7 @@
                     style="cursor: pointer; background-image: url('<?= base_url('assets/images/' . $course['thumbnail']) ?>');">
                     <h3>Course <?= $no++ ?></h3>
                     <p><?= esc($course['title']) ?></p>
-                    <a href="<?= site_url('course/' . $course['id']) ?>">Lanjutkan Belajar</a>
+                    <a href="<?= site_url('course/' . $course['id']) ?>">Continue Learning</a>
                 </div>
             <?php endforeach; ?>
         </div>

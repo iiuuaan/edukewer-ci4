@@ -1,0 +1,75 @@
+/* Profile Section */
+body {
+    text-align: left;
+}
+.profile-section {
+    margin: 50px auto;
+    max-width: 300px;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+}
+
+.profile-section h2 {
+    color: #007bff;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.profile-card p {
+    font-size: 16px;
+    margin: 8px 0;
+    color: #444;
+}
+
+.profile-card strong {
+    display: inline-block;
+    width: 120px;
+    color: #222;
+}
+
+/* Edit Form */
+.edit-profile-form {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #ccc;
+}
+
+.edit-profile-form label {
+    font-weight: 500;
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.edit-profile-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.edit-profile-form input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.edit-profile-form button {
+    background-color: #28a745;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.edit-profile-form button:hover {
+    background-color: #218838;
+}

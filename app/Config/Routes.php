@@ -37,5 +37,11 @@ $routes->get('admin/logout', 'adminController::logout');
 
 $routes->get('admin/dashboard', 'AdminDashboardController::index', ['filter' => 'adminauth']);
 
-$routes->get('user/dashboard', 'UserDashboardController::index', ['filter' => 'userauth']);
+$routes->group('user/dashboard', ['filter' => 'userauth'], function($routes) {
+    $routes->get('/', 'UserDashboardController::index'); // Ini menangani GET user/dashboard
+    $routes->get('profile', 'UserDashboardController::profile');
+    $routes->post('profile/update', 'UserDashboardController::updateProfile');
+    $routes->post('profile/change-password', 'UserDashboardController::changePassword');
+});
+
 $routes->get('user/course', 'UserDashboardController::course', ['filter' => 'userauth']);

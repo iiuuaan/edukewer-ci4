@@ -16,8 +16,14 @@
         <div class="header-right">
             <nav id="nav-links">
                 <a href="<?= site_url('/') ?>">Home</a>
-                <a href="<?= site_url('login') ?>">Login</a>
-                <a href="<?= site_url('register') ?>">Register</a>
+                <?php if (session()->has('user_id')): ?>
+                    <a href="<?= site_url('user/dashboard') ?>">Dashboard</a>
+                    <a href="<?= site_url('user/logout') ?>">Logout</a>
+                <?php else: ?>
+                    <a href="<?= site_url('login') ?>">Login</a>
+                    <a href="<?= site_url('register') ?>">Register</a>
+                <?php endif; ?>
+
             </nav>
         </div>
     </header>

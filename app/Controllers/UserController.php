@@ -78,6 +78,4 @@ class UserController extends BaseController
         session()->destroy(); // Hapus semua data session
         return redirect()->to('/login'); // Arahkan ke halaman login
     }
-
-
 }
