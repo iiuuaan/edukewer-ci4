@@ -22,21 +22,5 @@
         </div>
     </header>
 
-    <section class="dashboard">
-        <h2>My Courses</h2>
-        <div class="course-list">
-            <div class="course-item">
-                <h3>Course 1</h3>
-                <p>Introduction to Programming</p>
-                <a href="<?= site_url('user/course') ?>">Go to Course</a>
-            </div>
-            <div class="course-item">
-                <h3>Course 2</h3>
-                <p>Web Development Basics</p>
-                <button class="enroll-btn" data-course="Course 2">Enroll</button>
-            </div>
-        </div>
-    </section>
-
 </body>
 </html>

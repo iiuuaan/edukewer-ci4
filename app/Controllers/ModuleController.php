@@ -4,8 +4,6 @@ namespace App\Controllers;
 
 use App\Models\ModuleModel;
 use App\Models\EnrollmentModel;
-use App\Models\ForumThreadModel;
-use App\Models\ForumPostModel;
 
 class ModuleController extends BaseController
 {
@@ -30,27 +28,8 @@ class ModuleController extends BaseController
             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Modul tidak ditemukan.");
         }
 
-        $threadModel = new ForumThreadModel();
-        $postModel = new ForumPostModel();
-        // Ambil thread yang sesuai dengan course & module ini
-        $threads = $threadModel->where([
-            'course_id' => $courseId,
-            'module_number' => $moduleNumber
-        ])->findAll();
-
-        // Ambil semua post berdasarkan thread_id
-        $postsGrouped = [];
-        foreach ($threads as $thread) {
-            $postsGrouped[$thread['thread_id']] = $postModel
-                ->where('thread_id', $thread['thread_id'])
-                ->orderBy('created_at', 'ASC')
-                ->findAll();
-        }
-
         return view('user/module_view', [
             'module' => $module,
-            'threads' => $threads,
-            'postsGrouped' => $postsGrouped
         ]);
     }
 }

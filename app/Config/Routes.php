@@ -16,6 +16,7 @@ $routes->group('course', ['filter' => 'userauth'], function ($routes) {
 });
 $routes->post('forum/post', 'ForumController::post');
 $routes->post('forum/thread/create', 'ForumController::createThread');
+$routes->get('course/(:num)/module/(:num)/forum', 'ForumController::moduleForum/$1/$2');
 
 
 $routes->get('user', 'UserController::index');
