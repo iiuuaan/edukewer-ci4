@@ -13,5 +13,6 @@ class DatabaseSeeder extends Seeder
         $this->call('ModuleSeeder');
         $this->call('QuizzesSeeder');
         $this->call('QuizQuestionsSeeder');
+        $this->call('ForumSeeder');
     }
 }

@@ -14,6 +14,9 @@ $routes->group('course', ['filter' => 'userauth'], function ($routes) {
     $routes->post('(:num)/module/(:num)/quiz/submit', 'QuizController::submit/$1/$2');
     $routes->get('(:num)/module/(:num)/quiz/review', 'QuizController::review/$1/$2');
 });
+$routes->post('forum/post', 'ForumController::post');
+$routes->post('forum/thread/create', 'ForumController::createThread');
+
 
 $routes->get('user', 'UserController::index');
 

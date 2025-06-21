@@ -50,18 +50,41 @@
         </section>
 
         <section class="forum-section">
-            <h3>Forum Diskusi</h3>
-            <form action="post_forum.php" method="post">
-                <textarea name="message" rows="4" placeholder="Tulis pesan..."></textarea>
-                <input type="hidden" name="module_id" value="1">
-                <button type="submit">Kirim</button>
-            </form>
+    <h3>Forum Diskusi untuk Modul Ini</h3>
+
+    <?php foreach ($threads as $thread): ?>
+        <div class="thread">
+            <h4><?= esc($thread['title']) ?></h4>
+            <p><?= esc($thread['content']) ?></p>
 
             <div class="forum-messages">
-                <p><strong>Raja:</strong> Saya kurang paham tentang variabel, bisa bantu?</p>
-                <p><strong>Iwan:</strong> Variabel itu tempat menyimpan nilai. Seperti box yang diberi label!</p>
+                <?php if (!empty($postsGrouped[$thread['thread_id']])): ?>
+                    <?php foreach ($postsGrouped[$thread['thread_id']] as $post): ?>
+                        <p><strong>User #<?= esc($post['user_id']) ?>:</strong> <?= esc($post['content']) ?></p>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <p><em>Belum ada tanggapan.</em></p>
+                <?php endif; ?>
             </div>
-        </section>
+
+            <form action="<?= site_url('forum/post') ?>" method="post">
+                <textarea name="content" rows="2" placeholder="Tulis balasan..."></textarea>
+                <input type="hidden" name="thread_id" value="<?= $thread['thread_id'] ?>">
+                <button type="submit">Kirim</button>
+            </form>
+        </div>
+    <?php endforeach; ?>
+<form action="<?= site_url('forum/thread/create') ?>" method="post">
+    <h4>Buat Thread Baru</h4>
+    <input type="hidden" name="course_id" value="<?= $module['course_id'] ?>">
+    <input type="hidden" name="module_number" value="<?= $module['module_number'] ?>">
+    <input type="text" name="title" placeholder="Judul Thread" required>
+    <textarea name="content" placeholder="Isi thread..." rows="3" required></textarea>
+    <button type="submit">Buat Thread</button>
+</form>
+
+</section>
+
     </main>
 
     <script src="assets/js/script.js"></script>
