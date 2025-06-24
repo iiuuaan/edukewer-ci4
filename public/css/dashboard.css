@@ -235,7 +235,7 @@ footer {
         content: attr(data-label);
     }
 }
-    
+
 
 
 /* === Responsive Layout === */
@@ -253,4 +253,88 @@ footer {
     .admin-options ul {
         gap: 15px;
     }
+}
+
+/* Course Section */
+.last-courses {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease-in-out;
+}
+
+.last-courses:hover {
+    transform: scale(1.02);
+}
+
+h2 {
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+.course-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.course-item {
+    position: relative;
+    padding: 20px;
+    border-radius: 8px;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+/* Overlay agar teks tetap terbaca */
+.course-item::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+}
+
+/* Posisi teks di atas background */
+.course-item h3,
+.course-item p,
+.course-item a {
+    position: relative;
+    z-index: 1;
+}
+
+.course-item:hover {
+    transform: translateY(-5px);
+}
+
+.course-item h3 {
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.course-item p {
+    color: #ddd;
+    margin-bottom: 10px;
+}
+
+.course-item a {
+    display: inline-block;
+    background: #007bff;
+    color: white;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.course-item a:hover {
+    background: #0056b3;
 }
