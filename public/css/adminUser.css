@@ -1,0 +1,59 @@
+button.edit-username-btn,
+button[type="submit"] {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    border: none;
+}
+
+button.edit-username-btn:hover,
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+button.edit-btn {
+    color: white;
+    background-color: #007bff;
+    border: 2px solid #007bff;
+    margin-left: 10px;
+}
+
+button.edit-btn:hover {
+    background-color: #0056b3;
+}
+
+.delete-form button {
+    background-color: red;
+    color: white;
+    border: none;
+    margin-top: 10px;
+    padding: 10px 20px;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    border: none;
+    display: inline-block;
+}
+
+.delete-form button:hover {
+    background-color: #CE0000;
+    height: 34.67px;
+}
+
+.no-border {
+    border-collapse: collapse;
+    border: none;
+}
+
+.no-border td,
+.no-border th {
+    border: none;
+}

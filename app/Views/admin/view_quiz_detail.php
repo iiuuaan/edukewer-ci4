@@ -10,6 +10,15 @@
 </head>
 
 <body>
+    <header>
+        <h1>Manage Quiz Detail</h1>
+        <div class="header-right">
+            <nav id="nav-links">
+                <a href="<?= site_url("admin/modules/view/$courseId/$moduleNumber") ?>">Manage Modules Detail</a>
+                <a href="<?= site_url('admin/dashboard') ?>">Dashboard</a>
+            </nav>
+        </div>
+    </header>
     <section class="quiz">
         <h2>Edit Quiz: <?= esc($quiz['title']) ?></h2>
         <div class="timer" id="timer">Waktu: 15:00</div>

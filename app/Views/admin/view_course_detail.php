@@ -7,13 +7,12 @@
 </head>
 
 <body>
-
-    <header class="dashboard-header">
+    <header>
         <h1>Manage Course Detail</h1>
         <div class="header-right">
             <nav id="nav-links">
                 <a href="<?= site_url('admin/courses') ?>">Manage Courses</a>
-                <a href="../dashboard.html">Dashboard</a>
+                <a href="<?= site_url('admin/dashboard') ?>">Dashboard</a>
             </nav>
         </div>
     </header>

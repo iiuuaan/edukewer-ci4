@@ -1,24 +1,3 @@
-button#add-question-btn,
-button#cancel-add-btn
- {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: 600;
-    transition: background-color 0.3s ease;
-    border: none;
-}
-
-button#add-question-btn:hover,
-button#cancel-add-btn
- {
-    background-color: #0056b3;
-}
-
 /* Header Layout */
 header {
     display: flex;
@@ -76,4 +55,36 @@ header h1 {
     height: 50%;
     width: 1px;
     background-color: rgba(255, 255, 255, 0.5);
+}
+
+button#cancel-edit-btn,
+button#edit-button,
+button[type="submit"] {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    border: none;
+}
+
+button#cancel-edit-btn:hover,
+button#edit-button:hover,
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+button.edit-btn {
+    color: white;
+    background-color: #007bff;
+    border: 2px solid #007bff;
+    margin-left: 10px;
+}
+
+button.edit-btn:hover {
+    background-color: #0056b3;
 }

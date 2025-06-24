@@ -37,7 +37,7 @@ $routes->get('admin/logout', 'adminController::logout');
 
 $routes->get('admin/dashboard', 'AdminDashboardController::index', ['filter' => 'adminauth']);
 
-$routes->group('user/dashboard', ['filter' => 'userauth'], function($routes) {
+$routes->group('user/dashboard', ['filter' => 'userauth'], function ($routes) {
     $routes->get('/', 'UserDashboardController::index'); // Ini menangani GET user/dashboard
     $routes->get('profile', 'UserDashboardController::profile');
     $routes->post('profile/update', 'UserDashboardController::updateProfile');
@@ -49,7 +49,7 @@ $routes->get('user/course', 'UserDashboardController::course', ['filter' => 'use
 $routes->group('admin', ['filter' => 'adminauth'], function ($routes) {
     $routes->get('dashboard', 'AdminDashboardController::index');
     $routes->get('courses', 'AdminCourseController::index'); // manage_courses.php
-$routes->post('courses/update-thumbnail/(:num)', 'AdminCourseController::updateThumbnail/$1');
+    $routes->post('courses/update-thumbnail/(:num)', 'AdminCourseController::updateThumbnail/$1');
     $routes->post('courses/create', 'AdminCourseController::create'); // manage_courses.php
     $routes->post('courses/delete/(:num)', 'AdminCourseController::delete/$1'); // manage_courses.php
     $routes->get('users', 'AdminUserController::index');     // manage_users.php
@@ -64,8 +64,9 @@ $routes->post('courses/update-thumbnail/(:num)', 'AdminCourseController::updateT
     $routes->post('quiz/(:num)/(:num)/create', 'AdminQuizController::create/$1/$2');
     $routes->get('quiz/(:num)/(:num)/(:num)', 'AdminQuizController::view/$1/$2/$3');
     $routes->post('quiz/(:num)/(:num)/(:num)/update', 'AdminQuizController::update/$1/$2/$3');
-$routes->post('quiz/(:num)/(:num)/(:num)/delete/(:num)', 'AdminQuizController::delete/$1/$2/$3/$4');
-$routes->post('quiz/(:num)/(:num)/(:num)/add-question', 'AdminQuizController::addQuestion/$1/$2/$3');
+    $routes->post('quiz/(:num)/(:num)/(:num)/delete/(:num)', 'AdminQuizController::delete/$1/$2/$3/$4');
+    $routes->post('quiz/(:num)/(:num)/(:num)/add-question', 'AdminQuizController::addQuestion/$1/$2/$3');
 
-
+    $routes->post('users/delete/(:num)', 'AdminUserController::delete/$1');
+    $routes->post('users/update/(:num)', 'AdminUserController::update/$1');
 });

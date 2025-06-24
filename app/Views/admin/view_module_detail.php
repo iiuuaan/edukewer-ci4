@@ -2,40 +2,18 @@
 
 
     <link rel="stylesheet" href="<?= base_url('css/module.css') ?>">
-    <style>
-        button#cancel-edit-btn,
-        button#edit-button,
-        button[type="submit"] {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 600;
-            transition: background-color 0.3s ease;
-            border: none;
-        }
-
-        button#cancel-edit-btn:hover,
-        button#edit-button:hover,
-        button[type="submit"]:hover {
-            background-color: #0056b3;
-        }
-
-        button.edit-btn {
-            color: white;
-            background-color: #007bff;
-            border: 2px solid #007bff;
-            margin-left: 10px;
-        }
-
-        button.edit-btn:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <link rel="stylesheet" href="<?= base_url('css/adminModule.css') ?>">
 </head>
+
+    <header>
+        <h1>Manage Module Detail</h1>
+        <div class="header-right">
+            <nav id="nav-links">
+                <a href="<?= site_url('admin/courses/view/' . $module['course_id']) ?>">Manage Courses Detail</a>
+                <a href="<?= site_url('admin/dashboard') ?>">Dashboard</a>
+            </nav>
+        </div>
+    </header>
 <main class="module-container">
     <section class="module-content">
         <h2>Materi</h2>
