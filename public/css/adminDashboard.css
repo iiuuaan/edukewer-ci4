@@ -45,3 +45,35 @@ button[type="submit"]#save:hover {
     position: relative;
     z-index: 1;
 }
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    padding: 20px 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dashboard-header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: white;
+    margin: 0;
+}
+
+.dashboard-header nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.dashboard-header nav a:hover {
+    color: #d1e3ff; /* Biru muda terang saat hover */
+}
+
+

@@ -1,167 +1,96 @@
-/* Reset default styles */
-body, h1, h2, h3, p, a, nav {
+/* === Reset & Base Styles === */
+* {
     margin: 0;
     padding: 0;
-    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
 }
 
 body {
+    font-family: 'Poppins', sans-serif;
     background-color: #f4f7fc;
     color: #333;
+    line-height: 1.6;
     text-align: center;
-    padding-bottom: 60px; /* agar footer tidak menutupi konten */
+    padding-bottom: 60px;
 }
 
-/* Header Layout */
-header {
+/* === Header === */
+.dashboard-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
     background: linear-gradient(135deg, #007bff, #0056b3);
     color: white;
-    padding: 15px 30px;
+    padding: 20px 40px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: left;
+    flex-wrap: wrap;
 }
 
-header h1 {
+.dashboard-header h1 {
     font-family: 'Montserrat', sans-serif;
     font-size: 28px;
     font-weight: 700;
     letter-spacing: 1px;
-    color: #fff;
 }
 
-
-.header-right {
+.dashboard-header nav {
     display: flex;
-    align-items: center;
-    gap: 15px;
+    gap: 20px;
 }
 
-/* Navigation */
-#nav-links {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-#nav-links a {
+.dashboard-header nav a {
     color: #fff;
     text-decoration: none;
     font-weight: 600;
     position: relative;
-    padding: 0 10px;
     transition: color 0.3s ease;
 }
 
-#nav-links a:hover {
+.dashboard-header nav a:hover {
     color: #ffd700;
-    text-decoration: underline;
 }
 
-#nav-links a:not(:last-child)::after {
-    content: "";
-    position: absolute;
-    right: 0;
-    top: 25%;
-    height: 50%;
-    width: 1px;
-    background-color: rgba(255, 255, 255, 0.5);
-}
-
-/* User Info */
-.user-info {
-    color: #fff;
-    font-weight: bold;
-}
-
-/* Course Section */
-.last-courses {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 20px;
+/* === Admin Options Section === */
+.admin-options {
+    max-width: 700px;
+    margin: 60px auto;
     background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease-in-out;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    animation: fadeInUp 0.6s ease;
 }
 
-.last-courses:hover {
-    transform: scale(1.02);
-}
-
-h2 {
+.admin-options h2 {
     color: #007bff;
-    margin-bottom: 15px;
+    font-size: 24px;
+    margin-bottom: 25px;
 }
 
-.course-list {
+.admin-options ul {
+    list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
+    padding: 0;
 }
 
-.course-item {
-    position: relative;
-    padding: 20px;
-    border-radius: 8px;
-    background-size: cover;
-    background-position: center;
-    color: white;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.3s ease;
-}
-
-/* Overlay agar teks tetap terbaca */
-.course-item::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 0;
-}
-
-/* Posisi teks di atas background */
-.course-item h3,
-.course-item p,
-.course-item a {
-    position: relative;
-    z-index: 1;
-}
-
-.course-item:hover {
-    transform: translateY(-5px);
-}
-
-.course-item h3 {
-    color: #fff;
-    margin-bottom: 5px;
-}
-
-.course-item p {
-    color: #ddd;
-    margin-bottom: 10px;
-}
-
-.course-item a {
-    display: inline-block;
+.admin-options li a {
+    display: block;
     background: #007bff;
     color: white;
-    padding: 8px 15px;
-    text-decoration: none;
-    border-radius: 5px;
+    padding: 15px 20px;
+    border-radius: 8px;
     font-weight: 600;
+    text-decoration: none;
     transition: background 0.3s ease;
 }
 
-.course-item a:hover {
+.admin-options li a:hover {
     background: #0056b3;
 }
 
-/* Footer styling */
+/* === Footer (Hidden by Default) === */
 footer {
     background-color: #007bff;
     color: white;
@@ -171,11 +100,10 @@ footer {
     font-size: 0.9rem;
     box-shadow: 0 -4px 8px rgba(0,0,0,0.1);
     z-index: 100;
-    display: none; /* Sembunyikan di awal */
+    display: none;
 }
 
-
-/* section search */
+/* === Search Bar === */
 .search-bar {
     margin: 20px auto;
     padding: 12px 20px;
@@ -184,8 +112,8 @@ footer {
     border: 2px solid #007bff;
     border-radius: 8px;
     font-size: 16px;
-    transition: box-shadow 0.3s ease;
     outline: none;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .search-bar:focus {
@@ -193,7 +121,7 @@ footer {
     border-color: #0056b3;
 }
 
-/* Animation for fade-in effect */
+/* === Animation === */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -202,5 +130,127 @@ footer {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+/* === Manage Users Section === */
+.users {
+    max-width: 1000px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 0.5s ease-in-out;
+}
+
+.users h2 {
+    font-size: 24px;
+    color: #007bff;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Table Style */
+.users table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.users th,
+.users td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.users th {
+    background-color: #007bff;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.users tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.users tr:hover {
+    background-color: #eef5ff;
+}
+
+/* Action Buttons */
+.users a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.users a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Responsive Table */
+@media (max-width: 768px) {
+    .users table,
+    .users thead,
+    .users tbody,
+    .users th,
+    .users td,
+    .users tr {
+        display: block;
+    }
+
+    .users thead {
+        display: none;
+    }
+
+    .users tr {
+        margin-bottom: 15px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        padding: 10px;
+    }
+
+    .users td {
+        position: relative;
+        padding-left: 50%;
+        text-align: left;
+    }
+
+    .users td::before {
+        position: absolute;
+        top: 12px;
+        left: 15px;
+        width: 45%;
+        font-weight: bold;
+        color: #555;
+        content: attr(data-label);
+    }
+}
+    
+
+
+/* === Responsive Layout === */
+@media (max-width: 768px) {
+    .dashboard-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .dashboard-header nav {
+        justify-content: center;
+        margin-top: 15px;
+    }
+
+    .admin-options ul {
+        gap: 15px;
     }
 }
