@@ -1,0 +1,35 @@
+button#edit-description-btn,
+button#cancel-edit-btn,
+button.cancel-edit,
+button[type="submit"],
+.btn-add {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    border: none;
+}
+
+button#edit-description-btn:hover,
+button#cancel-edit-btn:hover,
+button.cancel-edit:hover,
+button[type="submit"]:hover,
+.btn-add:hover {
+    background-color: #0056b3;
+}
+
+button.edit-btn {
+    color: white;
+    background-color: #007bff;
+    border: 2px solid #007bff;
+    margin-left: 10px;
+}
+
+button.edit-btn:hover {
+    background-color: #0056b3;
+}

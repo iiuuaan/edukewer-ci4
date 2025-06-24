@@ -16,7 +16,7 @@ class CreateTblQuizQuestions extends Migration
             'option_a'       => ['type' => 'VARCHAR', 'constraint' => 255, 'null' => false],
             'option_b'       => ['type' => 'VARCHAR', 'constraint' => 255, 'null' => false],
             'option_c'       => ['type' => 'VARCHAR', 'constraint' => 255, 'null' => false],
-            'correct_option' => ['type' => 'CHAR', 'constraint' => 1, 'null' => false], // A/B/C
+            'correct_option' => ['type' => 'CHAR', 'constraint' => 1, 'null' => true], // A/B/C/null
         ]);
 
         $this->forge->addKey('id', true); // Primary key

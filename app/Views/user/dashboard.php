@@ -38,7 +38,7 @@
             <?php endforeach; ?>
         </div>
         <?php else: ?>
-            <p>Belum ada aktivitas kursus.</p>
+            <p>There are no course activities yet.</p>
         <?php endif; ?>
     </section>
 

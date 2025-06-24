@@ -45,3 +45,27 @@ $routes->group('user/dashboard', ['filter' => 'userauth'], function($routes) {
 });
 
 $routes->get('user/course', 'UserDashboardController::course', ['filter' => 'userauth']);
+
+$routes->group('admin', ['filter' => 'adminauth'], function ($routes) {
+    $routes->get('dashboard', 'AdminDashboardController::index');
+    $routes->get('courses', 'AdminCourseController::index'); // manage_courses.php
+$routes->post('courses/update-thumbnail/(:num)', 'AdminCourseController::updateThumbnail/$1');
+    $routes->post('courses/create', 'AdminCourseController::create'); // manage_courses.php
+    $routes->post('courses/delete/(:num)', 'AdminCourseController::delete/$1'); // manage_courses.php
+    $routes->get('users', 'AdminUserController::index');     // manage_users.php
+    $routes->get('courses/view/(:num)', 'AdminCourseController::view/$1');
+    $routes->post('courses/update-description/(:num)', 'AdminCourseController::updateDescription/$1');
+    $routes->post('modules/update-title/(:num)', 'AdminModuleController::updateTitle/$1');
+    $routes->post('modules/update-title/(:num)/(:num)', 'AdminModuleController::updateTitle/$1/$2');
+    $routes->get('modules/view/(:num)/(:num)', 'AdminModuleController::view/$1/$2');
+    $routes->post('modules/add/(:num)', 'AdminModuleController::add/$1');
+    $routes->post('modules/update-content/(:num)/(:num)', 'AdminModuleController::updateContent/$1/$2');
+    $routes->post('modules/update-video/(:num)/(:num)', 'AdminModuleController::updateVideo/$1/$2');
+    $routes->post('quiz/(:num)/(:num)/create', 'AdminQuizController::create/$1/$2');
+    $routes->get('quiz/(:num)/(:num)/(:num)', 'AdminQuizController::view/$1/$2/$3');
+    $routes->post('quiz/(:num)/(:num)/(:num)/update', 'AdminQuizController::update/$1/$2/$3');
+$routes->post('quiz/(:num)/(:num)/(:num)/delete/(:num)', 'AdminQuizController::delete/$1/$2/$3/$4');
+$routes->post('quiz/(:num)/(:num)/(:num)/add-question', 'AdminQuizController::addQuestion/$1/$2/$3');
+
+
+});

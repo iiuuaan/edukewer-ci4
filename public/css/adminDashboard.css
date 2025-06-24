@@ -1,0 +1,47 @@
+.delete-form button {
+    background-color: red;
+    color: white;
+    border: none;
+    margin-top: 10px;
+    padding: 10px 20px;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    border: none;
+    display: inline-block;
+}
+
+.delete-form button:hover {
+    background-color: #CE0000;
+    height: 34.67px;
+}
+
+button#show-add-form,
+button#cancel-add-course,
+button.change-thumbnail-btn,
+button[type="submit"]#save {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    border: none;
+}
+
+button#show-add-form:hover,
+button#cancel-add-course:hover,
+button.change-thumbnail-btn:hover,
+button[type="submit"]#save:hover {
+    background-color: #0056b3;
+}
+
+.course-action {
+    position: relative;
+    z-index: 1;
+}
