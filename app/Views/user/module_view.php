@@ -24,14 +24,6 @@
             ?>
         </section>
 
-        <section class="module-resources">
-            <h2>Referensi</h2>
-            <ul>
-                <li><a href="https://www.w3schools.com">W3Schools</a></li>
-                <li><a href="https://developer.mozilla.org">MDN Web Docs</a></li>
-                <li><a href="https://www.codecademy.com">Codecademy</a></li>
-            </ul>
-        </section>
 
         <section class="video-container">
             <h3>Video Pembelajaran</h3>
