@@ -7,6 +7,16 @@
 </head>
 
 <body>
+
+    <header class="dashboard-header">
+        <h1>Manage Course Detail</h1>
+        <div class="header-right">
+            <nav id="nav-links">
+                <a href="<?= site_url('admin/courses') ?>">Manage Courses</a>
+                <a href="../dashboard.html">Dashboard</a>
+            </nav>
+        </div>
+    </header>
     <main class="course-content">
         <section class="course-description">
             <h2>Courses Description</h2>
