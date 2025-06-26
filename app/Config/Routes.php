@@ -9,6 +9,7 @@ $routes->get('/', 'HomeController::index');
 $routes->get('course/(:num)', 'CourseController::view/$1');
 
 $routes->group('course', ['filter' => 'userauth'], function ($routes) {
+    $routes->get('join-course/(:num)', 'CourseController::joinCourse/$1');
     $routes->get('(:num)/module/(:num)', 'ModuleController::view/$1/$2');
     $routes->get('(:num)/module/(:num)/quiz', 'QuizController::view/$1/$2');
     $routes->post('(:num)/module/(:num)/quiz/submit', 'QuizController::submit/$1/$2');
@@ -42,6 +43,8 @@ $routes->group('user/dashboard', ['filter' => 'userauth'], function ($routes) {
     $routes->get('profile', 'UserDashboardController::profile');
     $routes->post('profile/update', 'UserDashboardController::updateProfile');
     $routes->post('profile/change-password', 'UserDashboardController::changePassword');
+    $routes->get('getMyCertificate', 'UserDashboardController::getMyCertificate');
+    $routes->get('showCertificate', 'UserDashboardController::showCertificate');
 });
 
 $routes->get('user/course', 'UserDashboardController::course', ['filter' => 'userauth']);
@@ -69,4 +72,8 @@ $routes->group('admin', ['filter' => 'adminauth'], function ($routes) {
 
     $routes->post('users/delete/(:num)', 'AdminUserController::delete/$1');
     $routes->post('users/update/(:num)', 'AdminUserController::update/$1');
+    $routes->get('users/courses/(:num)', 'AdminUserController::courses/$1');
+    $routes->get('users/courses/scores/(:num)/(:num)', 'AdminUserController::courseScores/$1/$2');
+
+    $routes->post('quiz/(:num)/(:num)/(:num)/update-time', 'AdminQuizController::updateTime/$1/$2/$3');
 });

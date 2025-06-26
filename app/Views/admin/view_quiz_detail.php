@@ -21,7 +21,19 @@
     </header>
     <section class="quiz">
         <h2>Edit Quiz: <?= esc($quiz['title']) ?></h2>
-        <div class="timer" id="timer">Waktu: 15:00</div>
+        <div class="timer" id="timer-container" style="position: relative; display: inline-block;">
+            <span id="timer-display">Duration: <?= esc($quiz['duration_minutes']) ?> minute</span>
+            <button class="edit-btn" id="edit-timer-btn" style="cursor: pointer;" title="Edit waktu">
+                ✎
+            </button>
+
+            <form id="timer-edit-form" action="<?= site_url("admin/quiz/{$courseId}/{$moduleNumber}/{$quiz['id']}/update-time") ?>" method="post" style="display: none; margin-top: 10px;">
+                <input type="number" name="duration_minutes" id="timer-input" value="<?= esc($quiz['duration_minutes']) ?>" min="1" required>
+                <button type="submit">Save</button>
+                <button type="button" id="cancel-edit-btn">Cancel</button>
+            </form>
+        </div>
+
         <form id="quiz-form" action="<?= site_url("admin/quiz/$courseId/$moduleNumber/{$quiz['id']}/update") ?>" method="post">
             <?php foreach ($questions as $index => $q): ?>
                 <div class="question">
@@ -110,6 +122,25 @@
         addBtn.style.display = 'inline';
         form.reset();
     });
+
+    const editBtn = document.getElementById('edit-timer-btn');
+    const timerDisplay = document.getElementById('timer-display');
+    const timerForm = document.getElementById('timer-edit-form');
+    const cancelEditBtn = document.getElementById('cancel-edit-btn');
+
+    editBtn.addEventListener('click', function () {
+        timerDisplay.style.display = 'none';
+        editBtn.style.display = 'none';
+        timerForm.style.display = 'inline-block';
+    });
+
+    cancelEditBtn.addEventListener('click', function () {
+        timerDisplay.style.display = 'inline';
+        editBtn.style.display = 'inline';
+        timerForm.style.display = 'none';
+    });
+</script>
+
 </script>
 
 </html>

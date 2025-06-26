@@ -57,7 +57,7 @@ body {
     background: #fff;
     padding: 30px 40px;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     animation: fadeInUp 0.6s ease;
 }
 
@@ -98,7 +98,7 @@ footer {
     padding: 15px 20px;
     width: 100%;
     font-size: 0.9rem;
-    box-shadow: 0 -4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
     z-index: 100;
     display: none;
 }
@@ -127,6 +127,7 @@ footer {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -197,6 +198,7 @@ footer {
 
 /* Responsive Table */
 @media (max-width: 768px) {
+
     .users table,
     .users thead,
     .users tbody,
@@ -215,7 +217,7 @@ footer {
         background-color: #fff;
         border: 1px solid #ddd;
         border-radius: 8px;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
         padding: 10px;
     }
 
@@ -256,6 +258,7 @@ footer {
 }
 
 /* Course Section */
+.courses,
 .last-courses {
     max-width: 800px;
     margin: 40px auto;
@@ -266,6 +269,7 @@ footer {
     transition: transform 0.3s ease-in-out;
 }
 
+.courses:hover,
 .last-courses:hover {
     transform: scale(1.02);
 }
@@ -281,6 +285,7 @@ h2 {
     gap: 15px;
 }
 
+.my-course-item,
 .course-item {
     position: relative;
     padding: 20px;
@@ -294,6 +299,7 @@ h2 {
 }
 
 /* Overlay agar teks tetap terbaca */
+.my-course-item::before,
 .course-item::before {
     content: "";
     position: absolute;
@@ -303,6 +309,9 @@ h2 {
 }
 
 /* Posisi teks di atas background */
+.my-course-item h3,
+.my-course-item p,
+.my-course-item a,
 .course-item h3,
 .course-item p,
 .course-item a {
@@ -310,20 +319,24 @@ h2 {
     z-index: 1;
 }
 
+.my-course-item:hover,
 .course-item:hover {
     transform: translateY(-5px);
 }
 
+.my-course-item h3,
 .course-item h3 {
     color: #fff;
     margin-bottom: 5px;
 }
 
+.my-course-item p,
 .course-item p {
     color: #ddd;
     margin-bottom: 10px;
 }
 
+.my-course-item a,
 .course-item a {
     display: inline-block;
     background: #007bff;
@@ -335,6 +348,24 @@ h2 {
     transition: background 0.3s ease;
 }
 
+.my-course-item a:hover,
 .course-item a:hover {
     background: #0056b3;
+}
+
+button#certificate-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    border: none;
+}
+
+button#certificate-btn:hover {
+    background-color: #0056b3;
 }

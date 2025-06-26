@@ -4,6 +4,30 @@ namespace App\Controllers;
 
 class CourseController extends BaseController
 {
+    public function joinCourse($courseId)
+    {
+        $userId = session()->get('user_id');
+
+        $enrollModel = new \App\Models\EnrollmentModel();
+
+        // Cek apakah sudah pernah mendaftar
+        $existing = $enrollModel->where([
+            'user_id' => $userId,
+            'course_id' => $courseId
+        ])->first();
+
+        // Jika belum, insert data enroll
+        if (!$existing) {
+            $enrollModel->insert([
+                'user_id' => $userId,
+                'course_id' => $courseId,
+                'enrolled_at' => date('Y-m-d H:i:s'),
+                'status' => 'active' // sesuaikan jika ada status lain
+            ]);
+        }
+
+        return redirect()->to(site_url('user/dashboard'));
+    }
 
     public function view($courseId)
     {

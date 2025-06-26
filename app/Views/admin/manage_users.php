@@ -46,8 +46,8 @@
                             <button onclick="editUsername(<?= $user['id'] ?>)" class="edit-username-btn">Edit</button> |
                             <form action="<?= site_url('admin/users/delete/' . $user['id']) ?>" method="post" class="delete-form" style="display: inline;">
                                 <button type="submit" onclick="return confirm('Yakin ingin menghapus user ini?')">Delete</button>
-                            </form>
-
+                            </form> |
+                            <button onclick="location.href='<?= site_url('admin/users/courses/' . $user['id']) ?>'" class="view-courses-btn">View Progress</button>
                         </td>
                     </tr>
                 <?php endforeach; ?>

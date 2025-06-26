@@ -26,7 +26,25 @@ class UserDashboardController extends BaseController
             }
         }
 
-        return view('user/dashboard', ['lastCourses' => $lastCourses]);
+        $enrollmentModel = new \App\Models\EnrollmentModel();
+
+        $enrollments = $enrollmentModel
+            ->where('user_id', $userId)
+            ->findAll();
+
+        $enrolledCourses = [];
+        foreach ($enrollments as $enrollment) {
+            $course = $courseModel->find($enrollment['course_id']);
+            if ($course) {
+                $enrolledCourses[] = $course;
+            }
+        }
+
+
+        return view('user/dashboard', [
+            'lastCourses' => $lastCourses,
+            'courses' => $enrolledCourses
+        ]);
     }
 
     public function course(): string
@@ -83,5 +101,73 @@ class UserDashboardController extends BaseController
 
         session()->setFlashdata('password_success', 'Password has been changed successfully.');
         return redirect()->to('user/dashboard/profile');
+    }
+
+    public function getMyCertificate()
+    {
+        $userId = session()->get('user_id');
+
+        $enrollmentModel = new \App\Models\EnrollmentModel();
+        $quizModel = new \App\Models\QuizzesModel();
+        $userQuizResultModel = new \App\Models\UserQuizResultModel();
+        $courseModel = new \App\Models\CourseModel();
+
+        // Ambil semua course yang diikuti user
+        $enrollments = $enrollmentModel
+            ->where('user_id', $userId)
+            ->findAll();
+
+        $completedCourses = [];
+
+        foreach ($enrollments as $enrollment) {
+            $courseId = $enrollment['course_id'];
+
+            $totalQuiz = $quizModel
+                ->where('course_id', $courseId)
+                ->countAllResults();
+
+            $completedQuiz = $userQuizResultModel
+                ->where('user_id', $userId)
+                ->where('course_id', $courseId)
+                ->countAllResults();
+
+            $progress = ($totalQuiz > 0) ? round(($completedQuiz / $totalQuiz) * 100) : 0;
+
+            if ($progress == 100) {
+                $course = $courseModel->find($courseId);
+                if ($course) {
+                    $course['progress'] = $progress;
+                    $completedCourses[] = $course;
+                }
+            }
+        }
+
+        return view('user/completed_courses', [
+            'courses' => $completedCourses
+        ]);
+    }
+    public function showCertificate()
+    {
+        $userId = session()->get('user_id');
+        $courseId = $this->request->getGet('course_id');
+
+        if (!$userId || !$courseId) {
+            return redirect()->to('user/dashboard');
+        }
+
+        $userModel = new \App\Models\UserModel();
+        $courseModel = new \App\Models\CourseModel();
+
+        $user = $userModel->find($userId);
+        $course = $courseModel->find($courseId);
+
+        if (!$user || !$course) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException("User atau course tidak ditemukan.");
+        }
+
+        return view('user/certificate_view', [
+            'user' => $user,
+            'course' => $course
+        ]);
     }
 }

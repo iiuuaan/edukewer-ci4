@@ -1,3 +1,4 @@
+button.view-courses-btn,
 button.edit-username-btn,
 button[type="submit"] {
     display: inline-block;
@@ -12,6 +13,7 @@ button[type="submit"] {
     border: none;
 }
 
+button.view-courses-btn:hover,
 button.edit-username-btn:hover,
 button[type="submit"]:hover {
     background-color: #0056b3;
@@ -56,4 +58,59 @@ button.edit-btn:hover {
 .no-border td,
 .no-border th {
     border: none;
+}
+
+/* Course Section */
+.courses {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease-in-out;
+}
+
+.courses:hover {
+    transform: scale(1.02);
+}
+
+h2 {
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+.course-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.course-card {
+    position: relative;
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+
+.course-card:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.course-card {
+    border: 1px solid #ddd;
+    padding: 1em;
+    margin: 1em 0;
+    border-radius: 8px;
+}
+
+.progress-circle {
+    min-width: 100px;
+}
+ .course-card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
 }

@@ -10,7 +10,7 @@
         <h1><?= esc($course['title']) ?></h1>
         <nav>
             <a href="<?= site_url('/') ?>">Home</a>
-            <a href="#">Dashboard</a>
+            <a href="<?= site_url('user/dashboard') ?>">Dashboard</a>
         </nav>
     </header>
 

@@ -34,7 +34,7 @@
     </section>
 
 
-    <input type="text" id="search" placeholder="Cari kursus..." class="search-bar" />
+    <input type="text" id="search" placeholder="Search for courses..." class="search-bar" />
 
 
     <section class="courses">
@@ -45,11 +45,11 @@
             $no = 1;
             foreach ($courses as $course): ?>
                 <div class="course-item"
-                    data-url="<?= site_url('course/' . $course['id']) ?>"
+                    data-url="<?= site_url('course/join-course/' . $course['id']) ?>"
                     style="cursor: pointer; background-image: url('<?= base_url('assets/images/' . $course['thumbnail']) ?>');">
                     <h3>Course <?= $no++ ?></h3>
                     <p><?= esc($course['title']) ?></p>
-                    <a href="<?= site_url('course/' . $course['id']) ?>">View Course</a>
+                    <a href="<?= site_url('course/join-course/' . $course['id']) ?>">Join Course</a>
                 </div>
             <?php endforeach; ?>
 

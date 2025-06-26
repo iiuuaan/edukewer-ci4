@@ -27,7 +27,7 @@ class QuizController extends BaseController
 
         session()->set('quiz_start_time', time());
         $startTime = session()->get('quiz_start_time');
-        $timeLimit = 15 * 60; // 15 menit
+        $timeLimit = ((int) ($quiz['duration_minutes'] ?? 15)) * 60; // ambil dari DB
         $timeRemaining = max(0, $timeLimit - (time() - $startTime));
 
         return view('user/quizView', [
@@ -64,6 +64,29 @@ class QuizController extends BaseController
                 $score++;
             }
         }
+
+        $quizModel = new \App\Models\UserQuizResultModel();
+        $existing = $quizModel
+            ->where('user_id', session()->get('user_id'))
+            ->where('course_id', $courseId)
+            ->where('module_number', $moduleNumber)
+            ->first();
+
+       if ($existing) {
+            $quizModel->update($existing['id'], [
+                'score' => $score,
+                'completed_at' => date('Y-m-d H:i:s')
+            ]);
+        } else {
+            $quizModel->insert([
+                'user_id' => session()->get('user_id'),
+                'course_id' => $courseId,
+                'module_number' => $moduleNumber,
+                'score' => $score,
+                'completed_at' => date('Y-m-d H:i:s')  // isi manual
+            ]);
+        }
+
 
         session()->set('submittedAnswers', $submittedAnswers);
 

@@ -35,7 +35,7 @@
 
     <section class="quiz">
         <h2>Kuis: <?= $quiz['title'] ?></h2>
-        <div class="timer" id="timer">Waktu: 15:00</div>
+        <div class="timer" id="timer">Waktu: 00:00</div>
         <form id="quiz-form" action="<?= site_url("course/{$courseId}/module/{$moduleNumber}/quiz/submit") ?>" method="post">
 
             <?php foreach ($questions as $index => $q): ?>
